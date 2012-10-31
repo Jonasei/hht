@@ -23,8 +23,8 @@
 \vspace{2cm}
 
 \HRule\\[0.5cm]
-{\Huge Big Data}\\[1cm]
-\textsc{\large{Smart Grid}}
+{\Huge Load Prediction using Hilbert-Huang Transformation}\\[1cm]
+\textsc{\large{Smart Grid: Huge Data}}
 \HRule\\[3.5cm]
 
 \vspace{5cm}
@@ -33,8 +33,6 @@ Jonas Eikli\\
 
 \vfill
 
-{\large \today}
-
 
 \end{center}
 \end{titlepage}
@@ -42,28 +40,129 @@ Jonas Eikli\\
 
 
 \begin{abstract}
+The new Smart Grid is the power grid for the next generation. It is based on the current power grid, but with improvements in every category. One of the main things to improve in the current power grid is the efficiency. With better prediction of power consumption, the efficiency can be increased. This paper tries to answer the question can the Hilbert-Huang Transformation be used for prediction, and specifically, for this kind of prediction. The results show that...
 
 
 \end{abstract}
 \newpage
+
+\subsection*{Preface}
+\addcontentsline{toc}{subsection}{Preface}
+PREFACE
+
+
+
+
+\newpage
 \tableofcontents
 \newpage
 \section{Introduction}
+\label{introduction}
 
-\section{Smart Grid}
+The current power grids in use all over the world are inherently inefficient. The main reason for this is that only one third of the fuel is turned into electricity, and the overflow is wasted.  The reason for this inefficiency is that it is designed to withstand maximum load at all times. 20\% of the generation capacity exists to meet peak demands. If the electricity suppliers had more knowledge of how much power was needed, and when it was needed, the waste could be substantially reduced. As we spend more energy, and the resources are starting to dwindle, efficiency is becoming more and more important. This also holds true for areas with limited resources available.
+
+Several other methods exists for predicting, or forecasting, electricity demand. 
+
+The Hilbert-Huang Transform is a method to decompose a signal to get the instantaneous frequency. 
+
+%motivation
+%goals
+%context
+%stakeholders
+
+
+Research questions:
+\begin{enumerate}
+\item Can Hilbert-Huang Transformation be used for prediction?
+\item Can Hilbert-Huang Transformation be used to predict the load of a power grid?
+\end{enumerate}
+
+\section{Power Grid}
+\label{powerGrid}
+The power grid, or electrical grid, is a vital part of the infrastructure in any country. It serves to transport electricity over great distances, from suppliers to consumers, or from one country to another. While today's power grids certainly are impressive, they are far from perfect. It turns one-third of the fuel into electricity, without recovering the waste. Almost 8\% of its output is lost along the transmission lines, while 20\% of its generation capacity exists to meet peak demand (i.e., it is only in use 5\% of the time) \cite{smartgridPath}.
+
+The power grid is made up from three main components. The \textit{power stations} that produce the electricity, the \textit{transmission lines} that transports the electricity from the suppliers to demand centers, and the \textit{transformers} that reduce voltage so \textit{distribution lines} can deliver it to consumers.
+
+The power stations are usually located away from heavily populated areas. Because of this, a network of power lines are necessary to transport the electricity to where it is needed. This is done first over the transmission lines, then over the distribution lines. On the transmission lines the electricity is transmitted using at high voltages (110kV or above) to reduce the energy lost over long distances. The high voltage electricity is delivered to substations, or transformers, that reduce the voltage and sends the electricity out on the distribution lines. When the power finally arrives at a service location, the voltage is stepped down again, from distribution voltage to the required service voltage. The electricity is then ready for the typical household. 
+
+
+
+\subsection{Evolution of the Smart grid}
+\label{smartGrid}
+The existing power grid is essentially a one-way pipeline where the source have no real-time information about the end points. Because of this, the grid is over-engineered to withstand maximum anticipated peak demand across its aggregated load. Since this is an infrequent occurrence, this system is inherently inefficient. The suppliers need to know, or at least predict, how much power is needed in order to increase efficiency. 
+
+The earliest attempts from the power industry at solving this was the automated meter reading (AMR). AMR let utilities read the consumptions records, alarms and status from customers' premises remotely. While this looked promising at first, it did not solve the major problem, that is, demand-side management. It is limited to reading data, so it can not take corrective action based on the received information. AMR systems do not allow the transition to the smart grid, where pervasive control at all levels is a basic premise \cite{smartgridPath}.
+
+As a consequence of this, AMR was short lived. Instead, the advanced metering infrastructure (AMI) was introduced. Through AMI, utilities get a two-way communication system to the meter, as well as the ability to modify customers' service-level parameters. AMI paved the path for the new smart grid, which is currently under development.
+
+The Smart Grid is a developing network of new technologies, equipment, and controls working together to respond immediately to our 21st century demand for electricity \cite{smartGridGov}. Is is the full range of current and proposed solutions to the challenges of electricity supply. Smart Grid spans many different fields and technologies, including intelligent agents, intelligent applications, network management, distributed control, smart sensors and two-way communication. Some of these are already done by AMI, but the rest are still under development. 
+
+The goals of the Smart Grid is to get a more efficient, more robust, self-healing power grid, that can cope with the increased demand for electricity in years to come.
+
+
 
 \section{Hilbert-Huang Transformation}
+\label{hilbertHuangTransformation}
+
+The Hilbert-Huang Transformation (HHT) is a way to decompose a signal into intrinsic mode functions (IMF), and obtain instantaneous frequency data. Unlike the Fourier transformation, it is designed to work well for data that are nonstationary and nonlinear. The HHT consists of the empirical mode decomposition (EMD) and the Hilbert Spectral analysis (HSA). The EMD is used to make IMFs and the HSA is used to obtain the instantaneous frequency data.
+
+The EMD consists of a sifting process that is repeated a number of times. The sifting process is as follows:
+
+\begin{enumerate}
+\item Find all local extrema, maxima and minima, in the data.
+\item Connect all the maxima using a cubic spline line as an upped envelope.
+\item Connect all the minima the same way.
+\item Calculate a mean between the upper and lower envelope.
+\item Subtract the mean from the data.
+\item The result of this is used as input in the next sifting.
+\end{enumerate}
+
+There are two possible stoppage criteria that can determine how many times the sifting process is repeated. The first is proposed by Huang et al. (1998) and is similar to the Cauchy convergence test. First, a threshold is given, and when the sum of the difference is smaller that the threshold, the sifting process stop. The sum of the difference is defined as: 
+
+\begin{equation}
+SD_k=\frac{\sum_{t=0}^{T}|h_{k-1}(t)-h_k(t)|^2}{\sum_{t=0}^{T} h_{k-1}^2 (t)}.\,
+\end{equation}
+
+The second possible stoppage criteria is based on the so-called S-number, which is defined as the number of consecutive siftings when the numbers of zero-crossings and extrema are equal or differ at the most by one. The sifting process with only stop when the number of successive siftings where this is true reaches the pre-selected S-number. Huang et al. (2003) suggests that the optimal range for S lies between 3 and 8. 
+
+When the stoppage criterion is met, the first IMF is created. This IMF is removed from the original data by subtracting it, and the result is the residue. The first IMF contains the finest scale, or the shortest period component of the signal, and the residue is left with longer period variations in the data.
+
+The whole procedure is repeated with the residue as input. This is done until the residue becomes a monotonic function from which no IMF can be extracted. 
+
+
 
 \section{Discussion}
+\label{discussion}
+
+
+
 
 \section{Results}
+\label{results}
+
+
+
 
 \section{Conclusion}
+\label{conclusion}
+
+
+
 
 \section{Project evaluation}
+\label{projectEvaluation}
+
+
+
 
 \newpage
-\bibliographystyle{ieeetr}
+\bibliographystyle{plain}
 \bibliography{Bibliography}
+
+
+\appendix
+
+
+\include{SLR}
 
 \end{document}

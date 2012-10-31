@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.2.5)  12 SEP 2012 10:21
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.2.5)  29 OCT 2012 15:18
 entering extended mode
 **Projectreport.tex
 
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.tex"
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+tex"
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -570,8 +570,9 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.aux")
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+aux" ("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\SLR.aux")
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
@@ -648,10 +649,10 @@ LaTeX Info: Redefining \ref on input line 16.
 LaTeX Info: Redefining \pageref on input line 16.
 LaTeX Info: Redefining \nameref on input line 16.
 
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.out")
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.out")
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+out")
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+out")
 \@outlinefile=\write3
  [1
 
@@ -660,48 +661,96 @@ tination with the same identifier (name{page.1}) has been already used, duplica
 te ignored
 <to be read again> 
                    \relax 
-l.48 \newpage
-              [1]
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.toc")
-\tf@toc=\write4
- [2] [3]
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.bbl"
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
+l.47 \newpage
+              [1] [2]
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+toc"
+LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 61.
- [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 2.
 
-("C:\Users\Jonas\Documents\My Dropbox\Skole\Master\hht\Latex report\Projectrepo
-rt.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 61.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 61.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+))
+\tf@toc=\write4
+ [3] [4]
+[5] [6] [7]
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+bbl") [8]
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\SLR.tex"
+Overfull \hbox (42.50558pt too wide) detected at line 47
+\OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 ; T\OT1/c
+mr/m/n/12 1] \OMS/cmsy/m/n/12 _ \OT1/cmr/m/n/12 [\OML/cmm/m/it/12 G\OT1/cmr/m/n
+/12 1\OML/cmm/m/it/12 ; T\OT1/cmr/m/n/12 2]) \OMS/cmsy/m/n/12 ^ \OT1/cmr/m/n/12
+ ([\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; T\OT1/cmr/m/n/12 1] \O
+MS/cmsy/m/n/12 _ \OT1/cmr/m/n/12 [\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 2\OML/cmm/m
+/it/12 ; T\OT1/cmr/m/n/12 2] \OMS/cmsy/m/n/12 _ \OT1/cmr/m/n/12 [\OML/cmm/m/it/
+12 G\OT1/cmr/m/n/12 2\OML/cmm/m/it/12 ; T\OT1/cmr/m/n/12 3]) \OMS/cmsy/m/n/12 ^
+ \OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 3\OML/cmm/m/it/12 ; T\OT1/
+cmr/m/n/12 1]) \OMS/cmsy/m/n/12 ^ \OT1/cmr/m/n/12 ([\OML/cmm/m/it/12 G\OT1/cmr/
+m/n/12 4\OML/cmm/m/it/12 ; T\OT1/cmr/m/n/12 1] \OMS/cmsy/m/n/12 _ \OT1/cmr/m/n/
+12 [\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 4\OML/cmm/m/it/12 ; T\OT1/cmr/m/n/12 2] \
+OMS/cmsy/m/n/12 _ \OT1/cmr/m/n/12 [\OML/cmm/m/it/12 G\OT1/cmr/m/n/12 4\OML/cmm/
+m/it/12 ; T\OT1/cmr/m/n/12 3])
+ []
+
+
+Overfull \hbox (79.1473pt too wide) in paragraph at lines 54--59
+ [][] 
+ []
+
+[9
+
+]
+Overfull \hbox (30.52417pt too wide) in paragraph at lines 68--74
+ [][] 
+ []
+
+) [10]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 168.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 168.
+
+("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\Projectreport.
+aux" ("C:\Users\Jonas\Documents\My Dropbox\Skole\Project\Latex report\SLR.aux")
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 168.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 168.
 Package rerunfilecheck Info: File `Projectreport.out' has not changed.
-(rerunfilecheck)             Checksum: 6EAAC7464865A019EF6505E13C0D40AB;139.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 61.
+(rerunfilecheck)             Checksum: 00230E911329D1311322F12AB5A32AF8;865.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 168.
  ) 
 Here is how much of TeX's memory you used:
- 7398 strings out of 494049
- 103258 string characters out of 3146066
- 195165 words of memory out of 3000000
- 10584 multiletter control sequences out of 15000+200000
- 7357 words of font info for 26 fonts, out of 3000000 for 9000
+ 7519 strings out of 494049
+ 105074 string characters out of 3146066
+ 204094 words of memory out of 3000000
+ 10644 multiletter control sequences out of 15000+200000
+ 12527 words of font info for 46 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 41i,5n,43p,246b,351s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,9n,43p,790b,370s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Progr
-am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program
- Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Projectreport.pdf (5 pages, 79387 bytes).
+/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Pro
+gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsl12.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Projectreport.pdf (11 pages, 203497 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
- 25 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 225 PDF objects out of 1000 (max. 8388607)
+ 44 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

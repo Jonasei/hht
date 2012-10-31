@@ -1,3 +1,13 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{smartgridPath}
+Hassan Farhangi.
+\newblock The path of the smart grid.
+\newblock {\em IEEE power \& energy magazine}, pages 18--28, 2010.
+
+\bibitem{smartGridGov}
+U.S~Department of~Energy.
+\newblock Smartgrid.gov, July 2012.
+\newblock [Online] \url{http://www.smartgrid.gov/}.
 
 \end{thebibliography}
