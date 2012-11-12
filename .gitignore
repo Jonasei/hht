@@ -1,2 +1,12 @@
 #Artikler skal ikke være med
 Articles
+*.log
+*.aux
+*.dvi
+*.lof
+*.lot
+*.out
+*.gz
+*.bbl
+*.blg
+

@@ -6,22 +6,23 @@
 \contentsline {section}{\numberline {3}Hilbert-Huang Transformation}{8}{section.3}
 \contentsline {section}{\numberline {4}Artificial Neural Networks}{9}{section.4}
 \contentsline {subsection}{\numberline {4.1}General Regression Neural Network and the Radial Basis Function}{10}{subsection.4.1}
-\contentsline {section}{\numberline {5}Discussion}{12}{section.5}
+\contentsline {section}{\numberline {5}Implementation}{12}{section.5}
 \contentsline {subsection}{\numberline {5.1}Power Grid}{12}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Python}{13}{subsection.5.2}
 \contentsline {subsection}{\numberline {5.3}Hilbert-Huang Transform}{15}{subsection.5.3}
 \contentsline {subsection}{\numberline {5.4}Prediction}{15}{subsection.5.4}
 \contentsline {section}{\numberline {6}Results}{15}{section.6}
-\contentsline {section}{\numberline {7}Conclusion}{15}{section.7}
-\contentsline {section}{\numberline {8}Future Work}{15}{section.8}
-\contentsline {section}{\numberline {9}Project evaluation}{15}{section.9}
-\contentsline {section}{\numberline {A}Systematic Literary Review}{17}{appendix.A}
-\contentsline {subsection}{\numberline {A.1}Sources}{17}{subsection.A.1}
-\contentsline {subsection}{\numberline {A.2}Search Terms}{17}{subsection.A.2}
-\contentsline {subsection}{\numberline {A.3}Research Questions}{18}{subsection.A.3}
-\contentsline {subsection}{\numberline {A.4}Inclusion Criteria}{18}{subsection.A.4}
-\contentsline {subsection}{\numberline {A.5}Quality Assessment}{18}{subsection.A.5}
-\contentsline {subsection}{\numberline {A.6}SLR Results}{19}{subsection.A.6}
-\contentsline {subsubsection}{\numberline {A.6.1}Literature Found}{19}{subsubsection.A.6.1}
-\contentsline {subsubsection}{\numberline {A.6.2}Description of Articles}{20}{subsubsection.A.6.2}
-\contentsline {subsubsection}{\numberline {A.6.3}Summary}{21}{subsubsection.A.6.3}
+\contentsline {section}{\numberline {7}Discussion}{15}{section.7}
+\contentsline {section}{\numberline {8}Conclusion}{15}{section.8}
+\contentsline {section}{\numberline {9}Future Work}{15}{section.9}
+\contentsline {section}{\numberline {10}Project evaluation}{16}{section.10}
+\contentsline {section}{\numberline {A}Systematic Literary Review}{18}{appendix.A}
+\contentsline {subsection}{\numberline {A.1}Sources}{18}{subsection.A.1}
+\contentsline {subsection}{\numberline {A.2}Search Terms}{18}{subsection.A.2}
+\contentsline {subsection}{\numberline {A.3}Research Questions}{19}{subsection.A.3}
+\contentsline {subsection}{\numberline {A.4}Inclusion Criteria}{19}{subsection.A.4}
+\contentsline {subsection}{\numberline {A.5}Quality Assessment}{19}{subsection.A.5}
+\contentsline {subsection}{\numberline {A.6}SLR Results}{20}{subsection.A.6}
+\contentsline {subsubsection}{\numberline {A.6.1}Literature Found}{20}{subsubsection.A.6.1}
+\contentsline {subsubsection}{\numberline {A.6.2}Description of Articles}{21}{subsubsection.A.6.2}
+\contentsline {subsubsection}{\numberline {A.6.3}Summary}{22}{subsubsection.A.6.3}
