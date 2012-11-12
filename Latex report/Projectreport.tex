@@ -56,6 +56,10 @@ PREFACE
 \newpage
 \tableofcontents
 \newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
 \section{Introduction}
 \label{introduction}
 
@@ -130,16 +134,133 @@ When the stoppage criterion is met, the first IMF is created. This IMF is remove
 The whole procedure is repeated with the residue as input. This is done until the residue becomes a monotonic function from which no IMF can be extracted. 
 
 
+\section{Artificial Neural Networks}
+\label{ann}
+An artificial neural network (ANN) is a mathematical model inspired by biological neural networks. The ANN consists of several layers; the input layer, one or more hidden layers, and the output layer. Each layer has one or more artificial neurons. The neurons in the different layers are connected by weighted edges. An example of an ANN, with 4 input neurons, 5 hidden neurons and 2 output neruons, can be seen in Figure \ref{fig:ann}. Each neuron also has an activation function that determines if it is activated or not. The activation level is based on the input and determines the output of the neuron. An ANN is typically defined by three types of parameters:
 
-\section{Discussion}
-\label{discussion}
+\begin{figure}[h]
+\centering
+\includegraphics[width = 0.6\textwidth]{ann}
+\caption{A typical feedforward ANN}
+\label{fig:ann}
+\end{figure}
+
+\begin{enumerate}
+\item The interconnection pattern between different layers of neurons.
+\item The learning process for updating the weights of the interconnection.
+\item The activation function that converts a neuron's weighted input to its output activation.
+\end{enumerate}
+
+There are three different paradigms for training ANNs, these are:
+
+\begin{description}
+\item \textbf{Supervised Learning} \hfill \\
+When using supervised learning, the network is provided with both sample inputs, as well as the desired outputs for each case. The well-known \textit{backpropagation} algorithm can be used for training. Typical tasks solved by this paradigm is pattern recognition and regression. 
+\item \textbf{Unsupervised Learning} \hfill \\
+In unsupervised learning, the desired output is not given, so the goal is typically to minimize the cost function for the input data. Typical tasks here are general estimation problems.
+\item \textbf{Reinforcement Learning} \hfill \\
+In reinforcement learning, the input data is typically not given. The aim is to discover a policy for selection actions that minimize some measure of long-term cost. Typical applications for reinforcement learning are control problems like for example games. 
+\end{description}
+
+For the task in this project, supervised learning is the obvious paradigm to use.
+
+Based on the structured literature search in Appendix \ref{SLR}, the neural network that will be used in this project is the General Regression Neural Network, discussed in Section \ref{grnn}.
+
+\subsection{General Regression Neural Network and the Radial Basis Function}
+\label{grnn}
+The General Regression Neural Network (GRNN)\cite{grnn} is a type of Radial Basis Function (RBF) network. The difference being that GRNN have one input neuron for each point in the training set, whereas RBF networks have a variable number of neurons that are usually lower than the number of training points.
+
+GRNN are conceptually similar to K-Nearest Neighbour models. When predicting the target value of some input, the idea is that the target value should be close to output from similar input generated during training. That is, similar input gives similar output. To decide which of the neighbours is to be used for determining output, they are weighted based on the distance from the point in question. The weight is decided using the Radial Basis Function. Different types of RBFs can be used, but the most common is the Gaussian function. 
+
+The GRNN also uses a smoothing parameter $\sigma$. A large $\sigma$ will result in a large spread Gaussian and the sample points will cover a wide range of inputs, while a small value will create a limited spread Gaussian and the sample points will cover a small range of inputs. It is important to find a good value for $\sigma$, so that it will cover up any noise, while at the same time not smoothing over important features. With a higher number of test cases, a lower value for $\sigma$ can be used. 
+
+GRNN has several advantages over other non-linear regression techniques\cite{grnn}: 
+\begin{enumerate}
+\item The network is trained by one pass through the data and can generalize from examples as soon as they are stored.
+\item The estimate converges to the conditional mean regression surface as more and more examples are observer, yet it can form a very reasonable regression surface based on only few examples.
+\item The estimate is bounded by the minimum and maximum of the observations.
+\item The estimate does not converge to poor solutions corresponding to local minima or maxima. 
+\item Its easy to use.
+\item The network can provide a mapping from one set of sample points to another. If this is one-to-one, it can be easily reversed. 
+\end{enumerate}
+
+The neural network in a GRNN consist of 4 layers; the input layer, the hidden layer, the pattern layer/summation layer and the decision layer. The input layer has one neuron for each predictor variable. The hidden layer has one neuron for each case in the training set. In the pattern layer, there are two neurons, one is the denominator summation unit and the other is the numerator summation unit. The decision layer has one node which divides the value accumulated in the numerator summation unit by the value in the denominator summation unit and uses the result as the predicted output value. 
+
+Let us consider a case where there is one input value and N training cases. This network would have 1 neuron in the input layer, N neurons in the hidden layer, two in the pattern layer and one in the decision layer. This GRNN can be seen in Figure \ref{fig:grnn}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = 0.7\textwidth]{grnn}
+\caption{A general regression neural network with one input value and N training cases.}
+\label{fig:grnn}
+\end{figure}
+
+
+\section{Implementation}
+\label{implementation}
+This section will reason for of the decisions made during this project, and try to explain why things have been done a certain way. Section \ref{python} discusses why Python selected as the programming language to use, as well as which libraries were used. Section \ref{prediction} discusses the method used for prediction and why that was selected.
+
+\subsection{Power Grid}
+\label{powergrid}
+The data used in this project is from a database provided by the advisor. The data is collected over a period of 6 years from a distribution network in Canada. Because it is from a distribution network, there is very little noise in the data, as the distribution network provides power to a lot end users. This results in a very good signal, that clearly shows each day. A section of this signal can be seen in Figure \ref{fig:10days}. This figure shows 10 days. It is easy to see the days, with peaks in the morning and evenings, and low points at night and during the day when people are at work. A lot more power is consumed during the days in the middle of the graph. Why this is, can be hard to say. The most likely reason is that there was cold weather during this period, or it might be a weekend.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = \textwidth]{10days}
+\caption{10 days of power consumption}
+\label{fig:10days}
+\end{figure}
 
 
 
+
+\subsection{Python}
+\label{python}
+Python\footnote{http://www.python.org/} is a general purpose, interpreted high-level programming language. The reasons for choosing Python as programming language in this project are:
+
+\begin{itemize}
+\item Pre-existing code for retrieving data from the database containing power consumption data. 
+\item Python is easy to use, and easy to get started with. It's ideal for systems of this scale.
+\item Libraries containing useful code, as discussed below.
+\item Using Python was recommended from the advisor. 
+\item Python, as well as most of the libraries, are free.
+\end{itemize}
+
+One of the main reasons for using Python is that there are many libraries, or packages or modules, available to make things easier. The, not already included in Python, libraries  used in this project is described below:
+
+\begin{description}
+\item \textbf{NumPy\footnote{http://numpy.scipy.org/}} \hfill \\
+NumPy is the fundamental package for scientific computing with Python. It provides Python with a host of both simple and advanced mathematical functionality. It is required for using SciPy.
+\item \textbf{SciPy\footnote{http://www.scipy.org/}} \hfill \\
+SciPy is another package for scientific computing. It provides modules for, among other things, statistics, optimization, numerical integration, signal processing and Fourier transforms. In this project, it is used for finding the spline functions used when finding maxima and minima in HHT, as well as in the Hilbert transform.
+\item \textbf{Pandas\footnote{http://pandas.pydata.org/}} \hfill \\
+Pandas is a library that provides Python with high-performance, easy-to-use data structures and data analysis tools. The power consumption data from the database was stored in Pandas time series.
+\item \textbf{MatPlotLib\footnote{http://matplotlib.org/}} \hfill \\
+MatPlotLib is a powerful library used for plotting 2D graphs. It is used to plot all the graphs in this report.
+\item \textbf{Peach\footnote{http://pypi.python.org/pypi/Peach/0.3.1}} \hfill \\
+Peach is a module based on SciPy and NumPy used to implement algorithms for computational intelligence and machine learning. The ANN used in this project is implemented using Peach. The ANN is discussed further in Section \ref{prediction}.
+\end{description}
+
+\subsection{Hilbert-Huang Transform}
+\label{hht}
+HHT is used in this project to find input variables for the prediction method. Why this is done should be obvious, as this is the very reason for the project. However, as HHT generates many IMFs as output, and each IMF has a instantaneous frequency and amplitude, there is the question of which of these to choose as input to the ANN. From the literature, it is clear that there are many ways to do this, but a mix of IMFs, frequencies and amplitudes tends to perform very well. This is something that needs to be experimented on, to see what gives the best results. 
+
+
+\subsection{Prediction}
+\label{prediction}
+The decision the use an artificial neural network (ANN) for prediction is based on the results of the structured literary review, Appendix \ref{SLR}. From the articles found there, it was clear that ANN is a widely used method of prediction when dealing with time series, and it also gives the best results. 
+
+Of the ANNs used in the literature, the general regression neural network (GRNN) was selected as the one to be used in this project. The other ANNs discussed was Multilayer Perceptron (MLP) and Radial Basis Function Network. Because of time constraints, only one was implemented. The reason for choosing GRNN was that, according to the literature, it gave very good results. Additionally, the Peach library for Python has methods for implementing a GRNN, so that saves a lot of time.
+
+The GRNN was implemented using the Peach package. 
 
 \section{Results}
 \label{results}
 
+
+
+\section{Discussion}
+\label{discussion}
 
 
 
@@ -148,6 +269,23 @@ The whole procedure is repeated with the residue as input. This is done until th
 
 
 
+
+\section{Future Work}
+\label{futureWork}
+
+end point optimization in HHT
+
+radial basis function
+
+multilayer perceptron
+
+more work on which parameters to use as input
+
+more robust
+
+how will it do with a lot of noise
+
+how weather impacts things
 
 \section{Project evaluation}
 \label{projectEvaluation}

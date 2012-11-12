@@ -1,13 +1,65 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{smartgridPath}
 Hassan Farhangi.
 \newblock The path of the smart grid.
 \newblock {\em IEEE power \& energy magazine}, pages 18--28, 2010.
 
+\bibitem{neuralNetAproach}
+V.~G. Kurbatskii, D.~N. Sidorov, V.~A. Spiryaev, and N.~V. Tomin.
+\newblock On the neural network approach for forecasting of nonstationary time
+  series on the basis of the hilbert-huang transform.
+\newblock {\em Automation and Remote Control}, 72(7):1405--1414, 2011.
+
+\bibitem{electricityPrices}
+V.~Kurbatsky, N.~Tomin, D.~Sidorov, and V.~Spiryaev.
+\newblock Electricity prices neural networks forecast using the hilbert-huang
+  transform.
+\newblock {\em 2010 9th Conference on Environment and Electrical Engineering,
+  EEEIC 2010}, pages 381--383, 2010.
+\newblock cited By (since 1996) 1.
+
+\bibitem{hhtTransformModel}
+V.G. Kurbatsky, D.N. Sidorov, V.A. Spiryaev, and N.V. Tomin.
+\newblock The hybrid model based on hilbert-huang transform and neural networks
+  for forecasting of short-term operation conditions of power system.
+\newblock {\em PowerTech, 2011 IEEE Trondheim}, pages 1 --7, june 2011.
+
+\bibitem{powersystem}
+Zhigang Liu, Weili Bai, and Gang Chen.
+\newblock A new short-term load forecasting model of power system based on hht
+  and ann.
+\newblock {\em Advances in Neural Networks - ISNN 2010}, pages 448--454, 2010.
+
 \bibitem{smartGridGov}
 U.S~Department of~Energy.
 \newblock Smartgrid.gov, July 2012.
 \newblock [Online] \url{http://www.smartgrid.gov/}.
+
+\bibitem{annForecastingModel}
+Jie Shi, Wei-Jen Lee, Yongqian Liu, Yongping Yang, and Peng Wang.
+\newblock Short term wind power forecasting using hilbert-huang transform and
+  artificial neural network.
+\newblock {\em Electric Utility Deregulation and Restructuring and Power
+  Technologies (DRPT), 2011 4th International Conference on}, pages 162 --167,
+  july 2011.
+
+\bibitem{filter}
+T.~Shifu, M.~Hong, and S.~Liyun.
+\newblock Filter principle of hilbert-huang transform and its application in
+  time series analysis.
+\newblock {\em International Conference on Signal Processing Proceedings,
+  ICSP}, 4, 2007.
+
+\bibitem{grnn}
+Donald~F. Specht.
+\newblock A general regression neural network.
+\newblock {\em IEEE Transactions on Neural Networks vol. 2}, pages 568--576,
+  1991.
+
+\bibitem{boundaryProcessing}
+Wu~Wang, Xueyao Li, and Rubo Zhang.
+\newblock Boundary processing of hht using support vector regression machines.
+\newblock {\em Computational Science – ICCS 2007}, 4489:174--177, 2007.
 
 \end{thebibliography}

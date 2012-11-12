@@ -1,0 +1,120 @@
+@article{smartgridPath,
+	author 	= {Hassan Farhangi},
+	title 	= {The Path of the Smart Grid},
+	year 	= {2010},
+	journal = {IEEE power \& energy magazine},
+	pages 	= {18-28}
+}
+
+@article{hilbertHuangReview,
+	author 	= {Norden E. Huang and Zhaohua Wu},
+	title 	= {A rewivew on Hilbert-Huang Transformation: Method and its applications to geophysical studies},
+	year 	= {2008},
+	journal = {Reviews of Geophysics}
+}
+
+@misc{smartGridGov,
+	author	= "U.S Department of Energy",
+	title 	= "SmartGrid.gov",
+	month	= "July",
+	year	= "2012",
+	note	= {[Online] \url{http://www.smartgrid.gov/}}
+}
+
+@article{forecastingMethods,
+	author	= {James W. Taylor and Lilian M de Menezes and Patric E. McSharry},
+	title	= {A comparison of univariate methods for forecasting electricity demand up to a day ahead},
+	year	= {2005},
+	journal	= {International Journal of Forecasting 22 (2006)}
+}
+
+
+
+@article{annForecastingModel, 
+author={Jie Shi and Wei-Jen Lee and Yongqian Liu and Yongping Yang and Peng Wang}, 
+journal={Electric Utility Deregulation and Restructuring and Power Technologies (DRPT), 2011 4th International Conference on}, 
+title={Short term wind power forecasting using Hilbert-Huang Transform and artificial neural network}, 
+year={2011}, 
+month={july}, 
+pages={162 -167}
+}
+
+
+@article{hhtTransformModel, 
+author={Kurbatsky, V.G. and Sidorov, D.N. and Spiryaev, V.A. and Tomin, N.V.}, 
+journal={PowerTech, 2011 IEEE Trondheim}, 
+title={The hybrid model based on Hilbert-Huang Transform and neural networks for forecasting of short-term operation conditions of power system}, 
+year={2011}, 
+month={june}, 
+pages={1 -7}, 
+}
+
+
+@article{neuralNetAproach,
+        author={Kurbatskii,V. G. and Sidorov,D. N. and Spiryaev,V. A. and Tomin,N. V.},
+        year={2011},
+        title={On the neural network approach for forecasting of nonstationary time series on the basis of the Hilbert-Huang transform},
+        journal={Automation and Remote Control},
+        volume={72},
+        number={7},
+        pages={1405-1414}
+}
+
+
+@article{electricityPrices,
+author={Kurbatsky, V. and Tomin, N. and Sidorov, D. and Spiryaev, V.},
+title={Electricity prices neural networks forecast using the Hilbert-Huang transform},
+journal={2010 9th Conference on Environment and Electrical Engineering, EEEIC 2010},
+year={2010},
+pages={381-383},
+note={cited By (since 1996) 1}
+}
+
+
+@article {boundaryProcessing,
+   author = {Wang, Wu and Li, Xueyao and Zhang, Rubo},
+   title = {Boundary Processing of HHT Using Support Vector Regression Machines},
+   journal = {Computational Science – ICCS 2007},
+   series = {Lecture Notes in Computer Science},
+   editor = {Shi, Yong and van Albada, Geert and Dongarra, Jack and Sloot, Peter},
+   publisher = {Springer Berlin / Heidelberg},
+   pages = {174-177},
+   volume = {4489},
+   year = {2007}
+}
+
+
+@article{filter,
+author={Shifu, T. and Hong, M. and Liyun, S.},
+title={Filter principle of Hilbert-Huang transform and its application in time series analysis},
+journal={International Conference on Signal Processing Proceedings, ICSP},
+year={2007},
+volume={4},
+note={cited By (since 1996) 0}
+}
+
+
+@article {powersystem,
+   author = {Liu, Zhigang and Bai, Weili and Chen, Gang},
+   title = {A New Short-Term Load Forecasting Model of Power System Based on HHT and ANN},
+   journal = {Advances in Neural Networks - ISNN 2010},
+   series = {Lecture Notes in Computer Science},
+   editor = {Zhang, Liqing and Lu, Bao-Liang and Kwok, James},
+   publisher = {Springer Berlin / Heidelberg},
+   pages = {448-454},
+   year = {2010}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

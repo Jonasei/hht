@@ -1,3 +1,6 @@
+%\documentclass[12pt]{article}
+
+%\begin{document}
 \section{Systematic Literary Review}
 \label{SLR}
 
@@ -10,7 +13,7 @@ This is the full version of the systematic literary research. It describes how a
 
 
 
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{|l|}
 \hline
@@ -29,9 +32,9 @@ Table \ref{sources} show the databases used for finding the articles cited in th
 \subsection{Search Terms}
 
 
-\begin{table}
+\begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|l|l|}
+\begin{tabular}{|l|p{3cm}|l|l|l|}
 \hline
  					& \textbf{Group 1} 			& \textbf{Group 2} 	& \textbf{Group 3} 	& \textbf{Group 4}	\\ \hline
 \textbf{Term 1} 	& Hilbert Huang Transform 	& Forecast			& Time series		& Smart Grid		\\ \hline
@@ -49,9 +52,9 @@ When searching for literature related to this project, the search phrases in Tab
 However, this resulted in only one hit in the databases. This is far from enough, so the search was repeated without Group 4. This gave better results, while still being relevant. 
 
 \subsection{Research Questions}
-\begin{table}
+\begin{table}[h]
 \centering
-\begin{tabular}{|l|l|} \hline
+\begin{tabular}{|l|p{12cm}|} \hline
 RQ1	& Can Hilbert-Huang Transform (HHT) be used for load forecasting? \\ \hline
 RQ2	& How can the HHT be use for prediction? \\ \hline
 RQ3	& Does using HHT for prediction offer any improvements over other methods of prediction? \\ \hline
@@ -60,12 +63,12 @@ RQ3	& Does using HHT for prediction offer any improvements over other methods of
 \label{researchquestions}
 \end{table}
 
-The research questions in Table \ref{researchquestions} are the questions that the report will try to answer. 
+The research questions in Table \ref{researchquestions} are the questions that the report will try to answer. RQ1 is really the reason for doing the project, more than a research question. It is still included in the table, as it is something that hopefully will be answered by the project.
 
 \subsection{Inclusion Criteria}
-\begin{table}
+\begin{table}[h]
 \centering
-\begin{tabular}{|l|l|} \hline
+\begin{tabular}{|l|p{12cm}|} \hline
 IC1 & The article's main concern is using HHT for prediction.\\ \hline
 IC2 & The article describes how and why HHT was used\\ \hline
 IC3 & The article compares HHT to other methods for prediction\\ \hline
@@ -80,7 +83,7 @@ The articles that got selected from the search results was selected using the in
 
 \subsection{Quality Assessment}
 
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{|l|l|} \hline
 QC1 & The study is put into context of other studies\\ \hline
@@ -93,8 +96,90 @@ QC5 & The article is structured and uses good language \\ \hline
 \label{qualitycriteria}
 \end{table}
 
-The articles that got selected using the inclusion criteria described, are rated using the quality criteria from Table \ref{qualitycriteria}. Each article got a score for each quality criteria. The scores where summed up, and the ones with the highest scores were considered the best articles, and were given more weight when doing this project.
+The articles that got selected using the inclusion criteria described, are rated using the quality criteria from Table \ref{qualitycriteria}. Each article got a score (0, 0.5 or 1) for each quality criteria. The scores where summed up, and the ones with the highest scores were considered the best articles, and were given the most weight when doing this project.
 
 
+\subsection{SLR Results}
+
+This section describes the results achieved from doing the structured literary review described in Section \ref{SLR}. Section \ref{description} briefly describes all the selected articles from Section \ref{literature}. A summary is found in Section \ref{summary}.
+
+\subsubsection{Literature Found}
+\label{literature}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|p{12cm}|} \hline
+A1 & Short term wind power forecasting using Hilbert-Huang Transform and artificial neural network\cite{annForecastingModel}\\ \hline
+A2 & The hybrid model based on Hilbert-Huang Transform and neural networks for forecasting of short-term operation conditions of power system\cite{hhtTransformModel}\\ \hline
+A3 & On the neural network approach for forecasting of non-stationary time series on the basis of the Hilbert-Huang transform\cite{neuralNetAproach}\\ \hline
+A4 & Electricity prices neural networks forecast using the Hilbert-Huang transform\cite{electricityPrices} \\ \hline
+A5 & Boundary processing of HHT using support vector regression machines\cite{boundaryProcessing} \\ \hline
+A6 & Filter principle of Hilbert-Huang transform and its application in time series analysis\cite{filter} \\ \hline
+A7 & A new short-term load forecasting model of power system based on HHT and ANN \cite{powersystem}\\ \hline
+\end{tabular}
+\caption{The articles selected in the SLR, using the key words from Table \ref{keywords} and inclusion criteria from Table \ref{inclusioncriteria}}
+\label{articles}
+\end{table}
+
+Table \ref{articles} shows the articles that were selected, using the inclusion criteria, from the larger set of articles return from doing the search. Addition information about the articles can be found in the bibliography.
+
+\subsubsection{Description of Articles}
+\label{description}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|l|} \hline
+Article & QC1 	& QC2 	& QC3 	& QC4 	& QC5 	& SUM \\ \hline
+A1 		& 1 	& 1 	& 1 	& 0.5 	& 0.5 	& 4\\ \hline
+A2 		& 1 	& 0.5 	& 1 	& 1 	& 1 	& 4.5\\ \hline
+A3 		& 0.5 	& 0 	& 1 	& 1 	& 1 	& 3.5\\ \hline
+A4 		& 1 	& 1 	& 0 	& 0 	& 1 	& 3\\ \hline
+A5 		& 1 	& 1 	& 0.5 	& 0.5 	& 1 	& 4\\ \hline
+A6 		& 0.5	& 1 	& 1 	& 0.5 	& 1 	& 4\\ \hline
+A7 		& 1 	& 1 	& 1 	& 0.5 	& 1 	& 4.5\\ \hline
+\end{tabular}
+\caption{Quality criteria scores for the selected articles}
+\label{qcscore}
+\end{table}
+
+
+The scores each article got for each quality criteria can be seen in Table \ref{qcscore}. Most articles scored quite good, with the exception of A4, which only got a total score of 3. A brief description of each article follows.
+
+\begin{description}
+\item A1 \hfill \\
+This paper describes how HHT and Artificial Neural Networks (ANN) can be used for forecasting the power generated by wind power. The paper proposes an HHT-ANN model for wind power forecasting, and analyses a case study of a wind farm in Texas to find its results. The conclusion is that the proposed HHT-ANN model is suitable for short-term wind power output forecasting. 
+\item A2 \hfill \\
+This paper addresses the conventional approaches to the short-term forecasting of non-stationary processes in complex power systems using ANNs. It asks the question if preprocessing of the data can significantly improve the forecast. The focus of the article is HHT, and using that as a means for preprocessing. The conclusion is that using ANN for preprocessing gives better result that no preprocessing. 
+\item A3 \hfill \\
+This article proposes a two-stage adaptive approach for time series forecasting. The two stages are decomposition of the original time series using Hilbert Transform, and the second is using the obtains functions, as well as instantaneous amplitudes as input in a neural network. The article concludes that the use of HHT permits increasing the accuracy of forecasting. 
+\item A4 \hfill \\
+The focus of this article is the problem of forecasting of electricity prices. The paper proposes an ``intelligent'' approach which supposes the use of neural network technology together with HHT. The conclusion is that the use of the ``intelligent'' approach increases the accuracy of forecasting, and that the error of short term forecasting is decreased. It is not clear what it is compared against. 
+\item A5 \hfill \\
+This article focuses on how to restrain the end effects in HHT. Support Vector Regression Machines (SVRM) that are adopted to extend the data at both ends of a signal, is proposed as a solution. Particle Swarm Optimization (PSO) is proposed used for optimizing parameters. The conclusion is that experiments show that the end effects in HHT can be restrained effectively by this method, and that SVRM is a suitable forecasting method for time series. 
+\item A6 \hfill \\
+This paper puts forward a smoothing filter theory for explaining Empirical Mode Decomposition (EMD) in HHT. HHT is promoted for providing higher resolution and concentration in time-frequency plane and for avoiding false high frequency and energy dispersion. The schemed method is validated through experiments. 
+\item A7 \hfill \\
+This article proposes a new short-term load forecasting model based on HHT and ANN. The article discuss disadvantages of using HHT for forecasting. The article concludes that, through using the new model, a higher accuracy of short term forecasting can be achieved.
+
+\end{description}
+
+
+
+
+\subsubsection{Summary}
+\label{summary}
+
+After reading the articles in Table \ref{articles}, it is pretty clear that HHT can indeed be used for prediction, or forecasting. At least together with some other form for training algorithm. With the exception of article A5 and A6, all the articles dealt with using HHT and ANN for forecasting. A5 mentions using PSO and SVRM, but considering the overwhelming majority of articles that uses ANN, the latter will be considered the best option when doing the project. 
+
+According to several of the articles HHT is used to create the input to the ANNs. That is, both intrinsic mode functions (IMFs) and instantaneous frequencies and amplitudes are generated from HHT and used in an ANN. 
+
+Using this approach also gives increased performance over various other approaches, like using no preprocessing at all.
+
+
+%\newpage
+%\bibliographystyle{plain}
+%\bibliography{Bibliography}
+
+
+%\end{document}
 
 

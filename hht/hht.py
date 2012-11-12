@@ -7,6 +7,7 @@ import numpy
 from numpy import *
 import scipy
 from scipy import *
+from scipy.signal import *
 from scipy.interpolate import griddata
 import matplotlib.pyplot as plt
 import sqlite3
@@ -14,14 +15,8 @@ import datetime
 import os
 from scipy.interpolate import *
 from pylab import figure, show, setp
-
-def makePlot(list, figureNr):
-    figureNr = 3
-    for i in range(len(list)):
-        plt.figure(figureNr)
-        plt.subplot(len(list),1,i)
-        plt.plot(list[i])
-    plt.show()
+import peach.nn as p
+import pickle
 
 def removeZeroes(data):
     for i in range(len(data)):
@@ -32,6 +27,7 @@ def removeZeroes(data):
 
 
 def load2():
+    
     conn = sqlite3.connect('bchydro.db')
     c = conn.cursor()
     
@@ -42,7 +38,6 @@ def load2():
     return data2
 
  
-
 
 
 def findLocalMaximas(input):
@@ -217,14 +212,16 @@ def findIMF(data, count):
 IMFs = []
 possibleIMFs = []
 done = False
+testdata = []
+
 def doHHT(database, numberOfPlots):
-    
+    global testdata
     dataset = bchydro.load(database)
 
     removeZeroes(dataset)
 
     testdata = dataset[:30000].values
-    IMFs.append(testdata)
+    #IMFs.append(testdata)
     #plt.figure(1)
     #plt.subplot(numberOfPlots+1,1,1)
     #plt.plot(testdata)
@@ -252,5 +249,46 @@ def doHHT(database, numberOfPlots):
     plt.show()
     
 
-doHHT("bchydro.db", 10)
-makePlot(IMFs, 1)
+
+#doHHT("bchydro.db", 10)
+
+def getinstfreq(imfs):
+    omega=zeros((len(imfs),len(imfs[1])-1),dtype=float)
+    for i in range(len(imfs)):
+        h=hilbert(imfs[i:])
+        theta=unwrap(angle(h))
+        omega[i:]=diff(theta)
+        
+    return omega
+
+#omega = getinstfreq(IMFs)
+
+
+def saveListToFile(list, file):
+    f = open(file, 'w')
+    
+    pickle.dump(list, f)
+    f.close()
+    
+#saveListToFile(testdata, "testdata.txt")
+#saveListToFile(IMFs, "imfs.txt") 
+#saveListToFile(omega, "instfreq.txt")
+
+
+def makePlot(list, figureNr):
+    plt.figure(figureNr)
+    for i in range(len(list)):
+        plt.subplot(len(list),1,i)
+        plt.plot(list[i])
+    plt.show()
+
+
+
+
+#makePlot(IMFs, 1)
+
+
+ 
+
+
+    
