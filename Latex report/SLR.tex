@@ -2,14 +2,14 @@
 
 %\begin{document}
 \section{Systematic Literary Review}
-\label{SLR}
+\label{sec:SLR}
 
 This is the full version of the systematic literary research. It describes how and where the sources used in this project can be found, as well as the rationale for selecting the sources that are used. The reason for including a systematic literary review is to help the reader understand why certain articles are included, while others are not. 
 
 
 
 \subsection{Sources}
-
+\label{sec:sources}
 
 
 
@@ -23,14 +23,14 @@ SpringerLink\\ \hline
 Scopus\\ \hline
 \end{tabular}
 \caption{Databases used for literary search}
-\label{sources}
+\label{tab:sources}
 \end{table}
 
-Table \ref{sources} show the databases used for finding the articles cited in this project. The reasons for choosing these databases is that they are very popular and reliable, especially in the fields related to this project.
+Table \ref{tab:sources} show the databases used for finding the articles cited in this project. The reasons for choosing these databases is that they are very popular and reliable, especially in the fields related to this project.
 
 
 \subsection{Search Terms}
-
+\label{sec:searchterms}
 
 \begin{table}[h]
 \centering
@@ -42,16 +42,17 @@ Table \ref{sources} show the databases used for finding the articles cited in th
 \textbf{Term 3} 	& 							& Forecasting		& 					& Electrical Grid	\\ \hline
 \end{tabular}
 \caption{Phrases used when searching}
-\label{keywords}
+\label{tab:keywords}
 \end{table}
 
-When searching for literature related to this project, the search phrases in Table \ref{keywords} was used. They were put together in a search string in an attempt to get only relevant articles. The phrases was combined like this (T being the term, and G being the group):
+When searching for literature related to this project, the search phrases in Table \ref{tab:keywords} was used. They were put together in a search string in an attempt to get only relevant articles. The phrases was combined like this (T being the term, and G being the group):
 
 \[([G1,T1]\vee[G1,T2])\land  ([G2,T1]\vee[G2,T2]\vee[G2,T3])\land ([G3,T1]) \land ([G4,T1]\vee[G4,T2]\vee[G4,T3])   \]
 
 However, this resulted in only one hit in the databases. This is far from enough, so the search was repeated without Group 4. This gave better results, while still being relevant. 
 
 \subsection{Research Questions}
+\label{sec:researchquestions}
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|p{12cm}|} \hline
@@ -60,12 +61,13 @@ RQ2	& How can the HHT be use for prediction? \\ \hline
 RQ3	& Does using HHT for prediction offer any improvements over other methods of prediction? \\ \hline
 \end{tabular}
 \caption{Research questions}
-\label{researchquestions}
+\label{tab:researchquestions}
 \end{table}
 
-The research questions in Table \ref{researchquestions} are the questions that the report will try to answer. RQ1 is really the reason for doing the project, more than a research question. It is still included in the table, as it is something that hopefully will be answered by the project.
+The research questions in Table \ref{tab:researchquestions} are the questions that the report will try to answer. RQ1 is really the reason for doing the project, more than a research question. It is still included in the table, as it is something that hopefully will be answered by the project.
 
 \subsection{Inclusion Criteria}
+\label{sec:inclusioncriteria}
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|p{12cm}|} \hline
@@ -75,14 +77,14 @@ IC3 & The article compares HHT to other methods for prediction\\ \hline
 IC4 & The article has empirical proof, or cites another article, when making statements\\ \hline
 \end{tabular}
 \caption{Inclusion criteria}
-\label{inclusioncriteria}
+\label{tab:inclusioncriteria}
 \end{table}
 
-The articles that got selected from the search results was selected using the inclusion criteria found in Table \ref{inclusioncriteria}. IC1 was of course the most important inclusion criteria. All articles selected had to, at least, fulfil that one, as well as one or more of the other criteria.
+The articles that got selected from the search results was selected using the inclusion criteria found in Table \ref{tab:inclusioncriteria}. IC1 was of course the most important inclusion criteria. All articles selected had to, at least, fulfil that one, as well as one or more of the other criteria.
 
 
 \subsection{Quality Assessment}
-
+\label{sec:qualityassessment}
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|l|} \hline
@@ -93,18 +95,18 @@ QC4 & The results and procedures are thoroughly explained and analysed \\ \hline
 QC5 & The article is structured and uses good language \\ \hline
 \end{tabular}
 \caption{Quality criteria}
-\label{qualitycriteria}
+\label{tab:qualitycriteria}
 \end{table}
 
-The articles that got selected using the inclusion criteria described, are rated using the quality criteria from Table \ref{qualitycriteria}. Each article got a score (0, 0.5 or 1) for each quality criteria. The scores where summed up, and the ones with the highest scores were considered the best articles, and were given the most weight when doing this project.
+The articles that got selected using the inclusion criteria described, are rated using the quality criteria from Table \ref{tab:qualitycriteria}. Each article got a score (0, 0.5 or 1) for each quality criteria. The scores where summed up, and the ones with the highest scores were considered the best articles, and were given the most weight when doing this project.
 
 
 \subsection{SLR Results}
-
-This section describes the results achieved from doing the structured literary review described in Section \ref{SLR}. Section \ref{description} briefly describes all the selected articles from Section \ref{literature}. A summary is found in Section \ref{summary}.
+\label{sec:slrresults}
+This section describes the results achieved from doing the structured literary review described in Section \ref{sec:SLR}. Section \ref{sec:description} briefly describes all the selected articles from Section \ref{sec:literature}. A summary is found in Section \ref{sec:summary}.
 
 \subsubsection{Literature Found}
-\label{literature}
+\label{sec:literature}
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|p{12cm}|} \hline
@@ -116,14 +118,14 @@ A5 & Boundary processing of HHT using support vector regression machines\cite{bo
 A6 & Filter principle of Hilbert-Huang transform and its application in time series analysis\cite{filter} \\ \hline
 A7 & A new short-term load forecasting model of power system based on HHT and ANN \cite{powersystem}\\ \hline
 \end{tabular}
-\caption{The articles selected in the SLR, using the key words from Table \ref{keywords} and inclusion criteria from Table \ref{inclusioncriteria}}
-\label{articles}
+\caption{The articles selected in the SLR, using the key words from Table \ref{tab:keywords} and inclusion criteria from Table \ref{tab:inclusioncriteria}}
+\label{tab:articles}
 \end{table}
 
-Table \ref{articles} shows the articles that were selected, using the inclusion criteria, from the larger set of articles return from doing the search. Addition information about the articles can be found in the bibliography.
+Table \ref{tab:articles} shows the articles that were selected, using the inclusion criteria, from the larger set of articles return from doing the search. Addition information about the articles can be found in the bibliography.
 
 \subsubsection{Description of Articles}
-\label{description}
+\label{sec:description}
 
 \begin{table}[h]
 \centering
@@ -138,11 +140,11 @@ A6 		& 0.5	& 1 	& 1 	& 0.5 	& 1 	& 4\\ \hline
 A7 		& 1 	& 1 	& 1 	& 0.5 	& 1 	& 4.5\\ \hline
 \end{tabular}
 \caption{Quality criteria scores for the selected articles}
-\label{qcscore}
+\label{tab:qcscore}
 \end{table}
 
 
-The scores each article got for each quality criteria can be seen in Table \ref{qcscore}. Most articles scored quite good, with the exception of A4, which only got a total score of 3. A brief description of each article follows.
+The scores each article got for each quality criteria can be seen in Table \ref{tab:qcscore}. Most articles scored quite good, with the exception of A4, which only got a total score of 3. A brief description of each article follows.
 
 \begin{description}
 \item A1 \hfill \\
@@ -166,9 +168,9 @@ This article proposes a new short-term load forecasting model based on HHT and A
 
 
 \subsubsection{Summary}
-\label{summary}
+\label{sec:summary}
 
-After reading the articles in Table \ref{articles}, it is pretty clear that HHT can indeed be used for prediction, or forecasting. At least together with some other form for training algorithm. With the exception of article A5 and A6, all the articles dealt with using HHT and ANN for forecasting. A5 mentions using PSO and SVRM, but considering the overwhelming majority of articles that uses ANN, the latter will be considered the best option when doing the project. 
+After reading the articles in Table \ref{tab:articles}, it is pretty clear that HHT can indeed be used for prediction, or forecasting. At least together with some other form for training algorithm. With the exception of article A5 and A6, all the articles dealt with using HHT and ANN for forecasting. A5 mentions using PSO and SVRM, but considering the overwhelming majority of articles that uses ANN, the latter will be considered the best option when doing the project. 
 
 According to several of the articles HHT is used to create the input to the ANNs. That is, both intrinsic mode functions (IMFs) and instantaneous frequencies and amplitudes are generated from HHT and used in an ANN. 
 

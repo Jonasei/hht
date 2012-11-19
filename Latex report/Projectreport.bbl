@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{cacoullos}
+Theophilos Cacoullos.
+\newblock Estimation of a multivariate density.
+\newblock {\em Annals of the Institute of Statistical Mathematics}, 1964.
+
 \bibitem{smartgridPath}
 Hassan Farhangi.
 \newblock The path of the smart grid.
@@ -24,6 +29,11 @@ V.G. Kurbatsky, D.N. Sidorov, V.A. Spiryaev, and N.V. Tomin.
 \newblock The hybrid model based on hilbert-huang transform and neural networks
   for forecasting of short-term operation conditions of power system.
 \newblock {\em PowerTech, 2011 IEEE Trondheim}, pages 1 --7, june 2011.
+
+\bibitem{grnn2}
+Mark~T. Leung, An-Sing Chen, and Hazem Daouk.
+\newblock Forecasting exchange rates using general regression neural networks.
+\newblock {\em Computers \& Operations Research 27}, 2000.
 
 \bibitem{powersystem}
 Zhigang Liu, Weili Bai, and Gang Chen.

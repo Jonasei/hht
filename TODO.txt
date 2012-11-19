@@ -1,0 +1,27 @@
+
+HHT:
+- improve end points
+
+
+GRNN:
+- get some results
+- 
+
+
+Report:
+- write introduction
+- fix the feedback from advisor
+- write about results
+- write a conclusion
+- write a discussion
+- write about further work
+- finish abstract
+
+
+Plots:
+  For HHT introduction
+    - data, splines and mean for a week
+    - IMF for the plot above
+    - instantaneous frequency of above IMF
+  Results
+    - lots of plots here

@@ -61,7 +61,7 @@ PREFACE
 \listoftables
 \newpage
 \section{Introduction}
-\label{introduction}
+\label{sec:introduction}
 
 The current power grids in use all over the world are inherently inefficient. The main reason for this is that only one third of the fuel is turned into electricity, and the overflow is wasted.  The reason for this inefficiency is that it is designed to withstand maximum load at all times. 20\% of the generation capacity exists to meet peak demands. If the electricity suppliers had more knowledge of how much power was needed, and when it was needed, the waste could be substantially reduced. As we spend more energy, and the resources are starting to dwindle, efficiency is becoming more and more important. This also holds true for areas with limited resources available.
 
@@ -82,7 +82,7 @@ Research questions:
 \end{enumerate}
 
 \section{Power Grid}
-\label{powerGrid}
+\label{sec:powerGrid}
 The power grid, or electrical grid, is a vital part of the infrastructure in any country. It serves to transport electricity over great distances, from suppliers to consumers, or from one country to another. While today's power grids certainly are impressive, they are far from perfect. It turns one-third of the fuel into electricity, without recovering the waste. Almost 8\% of its output is lost along the transmission lines, while 20\% of its generation capacity exists to meet peak demand (i.e., it is only in use 5\% of the time) \cite{smartgridPath}.
 
 The power grid is made up from three main components. The \textit{power stations} that produce the electricity, the \textit{transmission lines} that transports the electricity from the suppliers to demand centers, and the \textit{transformers} that reduce voltage so \textit{distribution lines} can deliver it to consumers.
@@ -92,7 +92,7 @@ The power stations are usually located away from heavily populated areas. Becaus
 
 
 \subsection{Evolution of the Smart grid}
-\label{smartGrid}
+\label{sec:smartGrid}
 The existing power grid is essentially a one-way pipeline where the source have no real-time information about the end points. Because of this, the grid is over-engineered to withstand maximum anticipated peak demand across its aggregated load. Since this is an infrequent occurrence, this system is inherently inefficient. The suppliers need to know, or at least predict, how much power is needed in order to increase efficiency. 
 
 The earliest attempts from the power industry at solving this was the automated meter reading (AMR). AMR let utilities read the consumptions records, alarms and status from customers' premises remotely. While this looked promising at first, it did not solve the major problem, that is, demand-side management. It is limited to reading data, so it can not take corrective action based on the received information. AMR systems do not allow the transition to the smart grid, where pervasive control at all levels is a basic premise \cite{smartgridPath}.
@@ -104,9 +104,9 @@ The Smart Grid is a developing network of new technologies, equipment, and contr
 The goals of the Smart Grid is to get a more efficient, more robust, self-healing power grid, that can cope with the increased demand for electricity in years to come.
 
 
-
+\newpage
 \section{Hilbert-Huang Transformation}
-\label{hilbertHuangTransformation}
+\label{sec:hilbertHuangTransformation}
 
 The Hilbert-Huang Transformation (HHT) is a way to decompose a signal into intrinsic mode functions (IMF), and obtain instantaneous frequency data. Unlike the Fourier transformation, it is designed to work well for data that are nonstationary and nonlinear. The HHT consists of the empirical mode decomposition (EMD) and the Hilbert Spectral analysis (HSA). The EMD is used to make IMFs and the HSA is used to obtain the instantaneous frequency data.
 
@@ -133,9 +133,9 @@ When the stoppage criterion is met, the first IMF is created. This IMF is remove
 
 The whole procedure is repeated with the residue as input. This is done until the residue becomes a monotonic function from which no IMF can be extracted. 
 
-
+\newpage
 \section{Artificial Neural Networks}
-\label{ann}
+\label{sec:ann}
 An artificial neural network (ANN) is a mathematical model inspired by biological neural networks. The ANN consists of several layers; the input layer, one or more hidden layers, and the output layer. Each layer has one or more artificial neurons. The neurons in the different layers are connected by weighted edges. An example of an ANN, with 4 input neurons, 5 hidden neurons and 2 output neruons, can be seen in Figure \ref{fig:ann}. Each neuron also has an activation function that determines if it is activated or not. The activation level is based on the input and determines the output of the neuron. An ANN is typically defined by three types of parameters:
 
 \begin{figure}[h]
@@ -164,10 +164,10 @@ In reinforcement learning, the input data is typically not given. The aim is to 
 
 For the task in this project, supervised learning is the obvious paradigm to use.
 
-Based on the structured literature search in Appendix \ref{SLR}, the neural network that will be used in this project is the General Regression Neural Network, discussed in Section \ref{grnn}.
+Based on the structured literature search in Appendix \ref{sec:SLR}, the neural network that will be used in this project is the General Regression Neural Network, discussed in Section \ref{sec:grnn}.
 
 \subsection{General Regression Neural Network and the Radial Basis Function}
-\label{grnn}
+\label{sec:grnn}
 The General Regression Neural Network (GRNN)\cite{grnn} is a type of Radial Basis Function (RBF) network. The difference being that GRNN have one input neuron for each point in the training set, whereas RBF networks have a variable number of neurons that are usually lower than the number of training points.
 
 GRNN are conceptually similar to K-Nearest Neighbour models. When predicting the target value of some input, the idea is that the target value should be close to output from similar input generated during training. That is, similar input gives similar output. To decide which of the neighbours is to be used for determining output, they are weighted based on the distance from the point in question. The weight is decided using the Radial Basis Function. Different types of RBFs can be used, but the most common is the Gaussian function. 
@@ -196,13 +196,15 @@ Let us consider a case where there is one input value and N training cases. This
 \end{figure}
 
 
+\newpage
 \section{Implementation}
-\label{implementation}
-This section will reason for of the decisions made during this project, and try to explain why things have been done a certain way. Section \ref{python} discusses why Python selected as the programming language to use, as well as which libraries were used. Section \ref{prediction} discusses the method used for prediction and why that was selected.
+\label{sec:implementation}
+This section will describe the implementation of the different parts of the project. Decisions made during the implementation will be reasoned for and explained. The power grid, which is the raw data used in this project, is discussed in Section \ref{sec:powergrid}. Section \ref{sec:python} discusses why Python selected as the programming language to use, as well as which libraries were used. The implementation of the Hilbert-Huang Transform is discussed in Section \ref{sec:hht}. Section \ref{sec:prediction} discusses the method used for prediction, Artificial Neural Network, and why that was chosen.
 
+The source code for the entire project can be found in Appendix \ref{sec:sourcecode}.
 \subsection{Power Grid}
-\label{powergrid}
-The data used in this project is from a database provided by the advisor. The data is collected over a period of 6 years from a distribution network in Canada. Because it is from a distribution network, there is very little noise in the data, as the distribution network provides power to a lot end users. This results in a very good signal, that clearly shows each day. A section of this signal can be seen in Figure \ref{fig:10days}. This figure shows 10 days. It is easy to see the days, with peaks in the morning and evenings, and low points at night and during the day when people are at work. A lot more power is consumed during the days in the middle of the graph. Why this is, can be hard to say. The most likely reason is that there was cold weather during this period, or it might be a weekend.
+\label{sec:powergrid}
+The data used in this project is from a database provided by the advisor. The data is collected over a period of 6 years from a distribution network in Canada. Because it is from a distribution network, there is very little noise in the data, as the distribution network provides power to a lot end users. This results in a very good signal, that clearly shows each day. A section of this signal can be seen in Figure \ref{fig:10days}. This figure shows 10 days. It is easy to see the days, with peaks in the morning and evenings, and low points at night and during the day when people are at work. A lot more power is consumed during the days in the middle of the graph. Why this is, can be hard to say. The most likely reason is that there was cold weather during this period.
 
 \begin{figure}[h]
 \centering
@@ -211,17 +213,18 @@ The data used in this project is from a database provided by the advisor. The da
 \label{fig:10days}
 \end{figure}
 
+The data is stored in a \textit{SQLite\footnote{http://www.sqlite.org/}} database, as Pandas Time-Series objects. Pandas time-series objects is a way to store time series data, and it provides a lot of functionality for working with such data. The database and python methods for accessing it was provided by the advisor at the beginning of the project.
 
 
 
 \subsection{Python}
-\label{python}
+\label{sec:python}
 Python\footnote{http://www.python.org/} is a general purpose, interpreted high-level programming language. The reasons for choosing Python as programming language in this project are:
 
 \begin{itemize}
 \item Pre-existing code for retrieving data from the database containing power consumption data. 
 \item Python is easy to use, and easy to get started with. It's ideal for systems of this scale.
-\item Libraries containing useful code, as discussed below.
+\item Libraries containing useful code, as discussed below. 
 \item Using Python was recommended from the advisor. 
 \item Python, as well as most of the libraries, are free.
 \end{itemize}
@@ -238,38 +241,76 @@ Pandas is a library that provides Python with high-performance, easy-to-use data
 \item \textbf{MatPlotLib\footnote{http://matplotlib.org/}} \hfill \\
 MatPlotLib is a powerful library used for plotting 2D graphs. It is used to plot all the graphs in this report.
 \item \textbf{Peach\footnote{http://pypi.python.org/pypi/Peach/0.3.1}} \hfill \\
-Peach is a module based on SciPy and NumPy used to implement algorithms for computational intelligence and machine learning. The ANN used in this project is implemented using Peach. The ANN is discussed further in Section \ref{prediction}.
+Peach is a module based on SciPy and NumPy used to implement algorithms for computational intelligence and machine learning. The ANN used in this project is implemented using Peach. The ANN is discussed further in Section \ref{sec:prediction}.
 \end{description}
 
 \subsection{Hilbert-Huang Transform}
-\label{hht}
+\label{sec:hht}
 HHT is used in this project to find input variables for the prediction method. Why this is done should be obvious, as this is the very reason for the project. However, as HHT generates many IMFs as output, and each IMF has a instantaneous frequency and amplitude, there is the question of which of these to choose as input to the ANN. From the literature, it is clear that there are many ways to do this, but a mix of IMFs, frequencies and amplitudes tends to perform very well. This is something that needs to be experimented on, to see what gives the best results. 
 
+The HHT was implemented from scratch during this project. There are several reasons for this; to be sure it was done correctly, to learn how it was done and to become better at writing Python.  The exception to this is the method for finding the instantaneous frequency, which was taken from a python-hht project called \textit{pyhht}\footnote{http://brocabrain.blogspot.no/2011/11/python-for-hilbert-huang-transform.html}$^{,}$\footnote{https://github.com/jaidevd/pyhht/blob/master/pyhht.py}. Using this code was decided to be safe after testing it and seeing that the results looked reasonable, as well as looking on the background of the author. 
 
-\subsection{Prediction}
-\label{prediction}
-The decision the use an artificial neural network (ANN) for prediction is based on the results of the structured literary review, Appendix \ref{SLR}. From the articles found there, it was clear that ANN is a widely used method of prediction when dealing with time series, and it also gives the best results. 
+
+\subsection{Prediction} 
+\label{sec:prediction}
+The decision the use an artificial neural network (ANN) for prediction is based on the results of the structured literary review, Appendix \ref{sec:SLR}. From the articles found there, it was clear that ANN is a widely used method of prediction when dealing with time series, and it also gives the best results. 
 
 Of the ANNs used in the literature, the general regression neural network (GRNN) was selected as the one to be used in this project. The other ANNs discussed was Multilayer Perceptron (MLP) and Radial Basis Function Network. Because of time constraints, only one was implemented. The reason for choosing GRNN was that, according to the literature, it gave very good results. Additionally, the Peach library for Python has methods for implementing a GRNN, so that saves a lot of time.
 
-The GRNN was implemented using the Peach package. 
+The GRNN was implemented using the Peach package. This package contains methods for making the network, training it as well as finding predictions based on an input and the trained network. 
 
+\newpage
 \section{Results}
-\label{results}
+\label{sec:results}
+This section will present the results from performing the Hilbert-Huang Transform on the dataset, as well as the predictions generated by the artificial neural network. Which parameters was used to get the result will also be described. 
+
+\subsection{Results from HHT}
+\label{sec:resultshht}
+
+\begin{figure}[h]
+\centering
+\includegraphics[height = \pageheight]{fullrun}
+\caption{All IMFs generated from 40000 data points.}
+\label{fig:fullrun}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width = \textwidth]{dataandimf}
+\caption{The first 10 days of data, with the corresponding IMF.}
+\label{fig:dataandimf}
+\end{figure}
+
+\subsection{Results from ANN}
+\label{sec:resultsann}
 
 
 
+
+
+
+\newpage
 \section{Discussion}
-\label{discussion}
+\label{sec:discussion}
 
+
+
+
+
+
+
+\newpage
 \section{Conclusion}
-\label{conclusion}
+\label{sec:conclusion}
 
 
 
 
+
+
+\newpage
 \section{Future Work}
-\label{futureWork}
+\label{sec:futureWork}
 
 end point optimization in HHT
 
@@ -286,7 +327,7 @@ how will it do with a lot of noise
 how weather impacts things
 
 \section{Project evaluation}
-\label{projectEvaluation}
+\label{sec:projectEvaluation}
 
 
 
@@ -300,5 +341,7 @@ how weather impacts things
 
 
 \include{SLR}
+
+\include{sourcecode}
 
 \end{document}

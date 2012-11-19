@@ -42,27 +42,27 @@ def load2():
 
 def findLocalMaximas(input):
     maxima = []
-    for i in range(len(input)):
-        if i == 0:
+    for i in range(1,len(input)-1):
+        #if i == 0:
+        #    maxima.append(i)
+        #elif i == len(input)-1:
+        #    maxima.append(i)
+        #else:
+        if input[i] > input[i+1] and input[i] > input[i-1]:
             maxima.append(i)
-        elif i == len(input)-1:
-            maxima.append(i)
-        else:
-            if input[i] > input[i+1] and input[i] > input[i-1]:
-                maxima.append(i)
     return maxima
  
 
 def findLocalMinimas(input):
     minima = []
-    for i in range(len(input)):
-        if i == 0:
+    for i in range(1,len(input)-1):
+        #if i == 0:
+        #    minima.append(i)
+        #elif i == len(input)-1:
+        #    minima.append(i)
+        #else:
+        if input[i] < input[i+1] and input[i] < input[i-1]:
             minima.append(i)
-        elif i == len(input)-1:
-            minima.append(i)
-        else:
-            if input[i] < input[i+1] and input[i] < input[i-1]:
-                minima.append(i)
     return minima
 
 def getMaximaValues(maxima, data):
@@ -127,6 +127,38 @@ def getMinimaSpline(minima, minimaValues, data):
         minimaSpline = interpolate(minima, minimaValues, len(data),1)
     return minimaSpline
 
+
+def envlps(f):
+    f = asarray(f)
+    x=zeros((len(f),),dtype=int)
+    y=x.copy()
+    
+    for i in range(1,len(f)-1):
+        if (f[i]>f[i-1])&(f[i]>f[i+1]):
+            x[i]=1
+        if (f[i]<f[i-1])&(f[i]<f[i+1]):
+            y[i]=1
+    
+    x=(x>0).nonzero()
+    y=(y>0).nonzero()
+    y=y[0]
+    x=x[0]
+    x=hstack((0,x,len(f)-1))
+    y=hstack((0,y,len(f)-1))
+   # print x
+   # print type(f), f
+   # print f[x]
+    
+    t=splrep(x,f[x])
+    # numpy.arange
+    top=splev(array(range(len(f))),t)
+    t=splrep(y,f[y])
+    bot=splev(array(range(len(f))),t)
+    
+    return top,bot
+
+
+
 def isEqualToLastNTimes(list, N):
     isEqual = True
     if len(list) > N+1:
@@ -146,7 +178,7 @@ def isIMF(maximas, minimas, zeroCrossings, mean,count):
     #        meanIsZero = False
     #        break
     
-    if(differByOneOrLess(maximas + minimas-4, zeroCrossings) and isEqualToLastNTimes(numberOfMinima, 3) and isEqualToLastNTimes(numberOfMaxima, 3) and isEqualToLastNTimes(numberOfZeroCrossings, 3)):
+    if(differByOneOrLess(maximas + minimas, zeroCrossings) and isEqualToLastNTimes(numberOfMinima, 3) and isEqualToLastNTimes(numberOfMaxima, 3) and isEqualToLastNTimes(numberOfZeroCrossings, 3)):
         return True
     else:
         #print "It is not an IMF"
@@ -161,46 +193,206 @@ def isIMF2(lastList, thisList):
             print increment
         
     return SD
+def findStartDelta(list):
+    delta = 0
+    if list[1]-list[0]> list[2]-list[1]:
+        delta = list[1]-list[0]
+    else:
+        delta = list[2]-list[1]
+    return delta
 
+def findEndDelta(list):
+    delta = 0
+    if list[len(list)-1]-list[len(list)-2]> list[len(list)-2]- list[len(list)-3]:
+        delta = list[len(list)-1]-list[len(list)-2]
+    else:
+        delta = list[len(list)-2]-list[len(list)-3]
+    return delta
+    
+def getListMean(list):
+    sum = 0
+    for value in list:
+        sum += value
+    mean = sum/len(list)
+    return mean
+
+def fixEndPoints(maxima, minima, data):
+    #startPadding = 0
+    #endPadding = 0
+    #print maxima, minima
+    numberOfExtraPoints = 2
+    #listMean = getListMean(data)
+
+    deltaMaxStart = findStartDelta(maxima)
+    deltaMinStart = findStartDelta(minima)
+    
+    deltaMaxEnd = findEndDelta(maxima)
+    deltaMinEnd = findEndDelta(minima)
+    
+    if deltaMaxStart > deltaMinStart:
+        startPadding = deltaMaxStart
+    else:
+        startPadding = deltaMinStart
+    
+    if deltaMaxEnd > deltaMinEnd:
+        endPadding = deltaMaxEnd
+    else:
+        endPadding = deltaMinEnd
+        
+    for j in range(numberOfExtraPoints):  
+        for i in range(startPadding):
+            data = numpy.insert(data,0,None)
+        for i in range(endPadding):
+            data = numpy.insert(data,len(data),None)
+        
+        maxima.insert(0,maxima[0])
+        minima.insert(0,minima[0])
+        
+        maxima.insert(len(maxima),maxima[len(maxima)-1])
+        minima.insert(len(minima),minima[len(minima)-1])
+
+        for i in range(1,len(maxima)):
+            maxima[i] = maxima[i] + startPadding
+        for i in range(1,len(minima)):
+            minima[i] = minima[i] + startPadding
+   
+        maxima[len(maxima)-1] = maxima[len(maxima)-1]+endPadding
+        minima[len(minima)-1] = minima[len(minima)-1]+endPadding
+    
+    maxima.insert(0, 0)
+    maxima.insert(len(maxima), len(data)-1)
+    minima.insert(0, 0)
+    minima.insert(len(minima),len(data)-1)
+    
+    #print maxima, minima, data, startPadding, endPadding
+    return maxima, minima, data, startPadding, endPadding
+
+
+plot = False
+plot2 = False
 
 def findIMF(data, count):
     print count
     maxima = findLocalMaximas(data)
-    minima = findLocalMinimas(data)
-
-    zeroCrossings = numpy.where(numpy.sign(data[1:]) != numpy.sign(data[:-1]))
-
-    numberOfMaxima.append(len(maxima))
-    numberOfMinima.append(len(minima))
-    numberOfZeroCrossings.append(len(zeroCrossings[0]))
+    minima = findLocalMinimas(data)  
+    print len(maxima), len(minima)
     
+
     maximaValues = getMaximaValues(maxima, data)
     minimaValues = getMinimaValues(minima, data)
+    
+    numberOfMaxima.append(len(maxima))
+    numberOfMinima.append(len(minima))
+    listMean = getListMean(data)
+    
+    zeroCrossings = numpy.where(numpy.sign(data[1:]) != numpy.sign(data[:-1]))
+    numberOfZeroCrossings.append(len(zeroCrossings[0]))
 
-    if len(maxima) >= 4 and len(minima) >= 4:
-        maximaSpline = getMaximaSpline(maxima, maximaValues, data)
-        minimaSpline = getMinimaSpline(minima, minimaValues, data)
-    else:
+    if not (len(maxima) >= 3 and len(minima) >= 3):
+        #data = data[startPadding:-endPadding]
         print "IS DONE!"
         global done 
         done = True
         return data
-    mean = getMean(maximaSpline, minimaSpline)
+    
+    
+    maxima, minima, data, startPadding, endPadding = fixEndPoints(maxima, minima, data)
+    
+    
+    maximaValues.insert(0,maximaValues[1])
+    maximaValues.insert(len(maximaValues), maximaValues[len(maximaValues)-2])
+    minimaValues.insert(0,minimaValues[1])
+    minimaValues.insert(len(minimaValues), minimaValues[len(minimaValues)-2])
 
+    maximaValues.insert(0,maximaValues[1])
+    maximaValues.insert(len(maximaValues), maximaValues[len(maximaValues)-2])
+    minimaValues.insert(0,minimaValues[1])
+    minimaValues.insert(len(minimaValues), minimaValues[len(minimaValues)-2])
+    #print "maxmin", maxima, minima
+    maximaValues.insert(0,listMean)
+    maximaValues.insert(len(maximaValues), listMean)
+    minimaValues.insert(0,listMean)
+    minimaValues.insert(len(minimaValues), listMean)
+    #print "maximaValues: ", len(maximaValues), maximaValues 
+    #print "minimaValues: ", len(minimaValues), minimaValues
+    
+    
+    #print maximaValues, minimaValues
+    if len(maxima) >= 3 and len(minima) >= 3:
+        maximaSpline = getMaximaSpline(maxima, maximaValues, data)
+        minimaSpline = getMinimaSpline(minima, minimaValues, data)
+        #maximaSpline, minimaSpline = envlps(data)
+    else:
+        data = data[startPadding:-endPadding]
+        print "IS DONE!"
+        global done 
+        done = True
+        return data
+    #plt.plot(mean)
+    #print maximaSpline, minimaSpline
+    #plt.show()
+ 
+    #print "maximaSpline: ", maximaSpline
+    #print "minimaSpline: ", minimaSpline
+    #plt.subplot(211)
+    #plt.plot(data)
+    #plt.plot(maxima, maximaValues, 'o', linestyle = 'none')
+    #plt.plot(minima, minimaValues, 's', linestyle = 'none')
+    #plt.plot(maximaSpline, '--')
+    #plt.plot(minimaSpline, '--')   
+    #lt.show()
+    
+    data = data[startPadding*2:-endPadding*2]
+    maximaSpline = maximaSpline[startPadding*2:-endPadding*2]
+    minimaSpline = minimaSpline[startPadding*2:-endPadding*2]
+    mean = getMean(maximaSpline, minimaSpline)
+    #mean = mean[meanOvershoot:]
+    #mean = mean[startPadding:-endPadding]
+    #print len(maxima), len(minima)
+    
+    
+    
+    #plt.subplot(212)
+    #plt.plot(data)
+    #plt.plot(data)
+    #plt.plot(maximaSpline, '--')
+    #plt.plot(minimaSpline, '--')
+    #plt.plot(mean)
+    #plt.show()
+    #print len(data), len(mean)
     possibleIMF = getPossibleIMF(data, mean)
     #if len(possibleIMFs) >= 1:
     #    SD = isIMF2(possibleIMFs[len(possibleIMFs)-1], possibleIMF)
     #    print "SD", SD
         
     
+    if plot:
+        plt.subplot(211)
+        plt.plot(mean)
+        plt.plot(data)
+        plt.plot(maxima, maximaValues, 'o', linestyle = 'none')
+        plt.plot(minima, minimaValues, 's', linestyle = 'none')
+        plt.plot(maximaSpline, '--')
+        plt.plot(minimaSpline, '--')
+        global plot
+        plot = False
     
-    if (isIMF(len(maxima), len(minima), len(zeroCrossings[0]), mean, count)):
-       # plt.plot(mean)
-       # plt.plot(data)
-       # plt.plot(maxima, maximaValues, marker = 'o', linestyle = 'none')
-       # plt.plot(minima, minimaValues, marker = 's', linestyle = 'none')
-       # plt.plot(maximaSpline)
-       # plt.plot(minimaSpline)
+    print len(maxima), len(minima),len(maxima) + len(minima), len(zeroCrossings[0])
+    if (isIMF(len(maxima), len(minima), len(zeroCrossings[0])+12, mean, count) or count > 900):
+        
+        if plot2:
+            plt.subplot(212)
+            plt.plot(mean)
+            plt.plot(data)
+            #plt.plot(maxima, maximaValues, 'o', linestyle = 'none')
+            #plt.plot(minima, minimaValues, 's', linestyle = 'none')
+            #plt.plot(maximaSpline, '--')
+            #plt.plot(minimaSpline, '--')
+            plt.grid(True)
+            global plot2
+            plot2 = False
+            plt.show()
+        
         #print "Found IMF"
         IMF = possibleIMF
         return possibleIMF
@@ -214,14 +406,14 @@ possibleIMFs = []
 done = False
 testdata = []
 
-def doHHT(database, numberOfPlots):
+def doHHT(database):
     global testdata
     dataset = bchydro.load(database)
 
     removeZeroes(dataset)
 
-    testdata = dataset[:30000].values
-    #IMFs.append(testdata)
+    testdata = dataset[:24*1000].values
+    IMFs.append(testdata)
     #plt.figure(1)
     #plt.subplot(numberOfPlots+1,1,1)
     #plt.plot(testdata)
@@ -231,11 +423,11 @@ def doHHT(database, numberOfPlots):
     
     #for i in range(numberOfPlots):
     while not done:
-        #plt.subplot(numberOfPlots+1, 1, i+2)
+        count = 0
+        #plt.subplot(5, 1, count+1)
         #plt.grid(True)
         #plt.xlabel('Time(h)')
         #plt.ylabel('MWh') 
-        count = 0
         IMF = findIMF(residue, count)
         del possibleIMFs[:]
         IMFs.append(IMF)
@@ -250,7 +442,7 @@ def doHHT(database, numberOfPlots):
     
 
 
-#doHHT("bchydro.db", 10)
+doHHT("bchydro.db")
 
 def getinstfreq(imfs):
     omega=zeros((len(imfs),len(imfs[1])-1),dtype=float)
@@ -261,7 +453,7 @@ def getinstfreq(imfs):
         
     return omega
 
-#omega = getinstfreq(IMFs)
+omega = getinstfreq(IMFs)
 
 
 def saveListToFile(list, file):
@@ -270,22 +462,25 @@ def saveListToFile(list, file):
     pickle.dump(list, f)
     f.close()
     
-#saveListToFile(testdata, "testdata.txt")
-#saveListToFile(IMFs, "imfs.txt") 
-#saveListToFile(omega, "instfreq.txt")
+saveListToFile(testdata, "testdata.txt")
+saveListToFile(IMFs, "imfs.txt") 
+saveListToFile(omega, "instfreq.txt")
 
 
 def makePlot(list, figureNr):
     plt.figure(figureNr)
     for i in range(len(list)):
-        plt.subplot(len(list),1,i)
+        plt.subplot(len(list),1,i+1)
         plt.plot(list[i])
+        plt.xlabel("Time(h)")
+        plt.ylabel("Power")
     plt.show()
 
 
 
 
-#makePlot(IMFs, 1)
+makePlot(IMFs, 1)
+#makePlot(omega, 2)
 
 
  

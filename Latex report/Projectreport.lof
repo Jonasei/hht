@@ -1,4 +1,6 @@
 \select@language {english}
-\contentsline {figure}{\numberline {1}{\ignorespaces A typical feedforward ANN}}{9}{figure.1}
-\contentsline {figure}{\numberline {2}{\ignorespaces A general regression neural network with one input value and N training cases.}}{12}{figure.2}
-\contentsline {figure}{\numberline {3}{\ignorespaces 10 days of power consumption}}{13}{figure.3}
+\contentsline {figure}{\numberline {1}{\ignorespaces The first 10 days of data, with the corresponding IMF.}}{10}{figure.1}
+\contentsline {figure}{\numberline {2}{\ignorespaces A typical feedforward ANN}}{11}{figure.2}
+\contentsline {figure}{\numberline {3}{\ignorespaces A general regression neural network with one input value and N training cases.}}{15}{figure.3}
+\contentsline {figure}{\numberline {4}{\ignorespaces 10 days of power consumption}}{16}{figure.4}
+\contentsline {figure}{\numberline {5}{\ignorespaces All IMFs generated from 40000 data points.}}{26}{figure.5}
